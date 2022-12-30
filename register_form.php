@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'menu.php';
+require_once 'functions.php';
 if (isset($_SESSION['error_server'])) {
     echo $_SESSION['error_server'];
     unset($_SESSION['error_server']);

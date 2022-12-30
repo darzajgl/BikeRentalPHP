@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'menu.php';
+include_once 'functions.php';
 //if (!isset($_SESSION['logged'])) {
 //    header('Location: index.php');
 //}
@@ -31,7 +31,7 @@ menu('Konto');
         echo "<p>Wykształcenie: " . $_SESSION['wyksztalcenie'] . "</p>";
         echo "<p>Zainteresowania: " . $_SESSION['zainteresowania'] . "</p>";
 
-        echo "<a href ='logout.php'>Wyloguj się!</a>";
+//        echo "<a href ='logout.php'>Wyloguj się!</a>";
         echo"<br><br>";
         ?>
     </fieldset>

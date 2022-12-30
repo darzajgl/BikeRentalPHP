@@ -2,7 +2,7 @@
 
 session_start();
 //require_once "db_config.php";
-require_once "menu.php";
+require_once "functions.php";
 
 //try {
 //    $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);

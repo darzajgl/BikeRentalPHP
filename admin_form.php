@@ -1,12 +1,12 @@
 <?php
 session_start();
-include_once 'menu.php';
+include_once 'functions.php';
 //sprawdzenie czy ktoś jest już zalogowany
 if ((isset($_SESSION['logged'])) && ($_SESSION['logged'] == true)) {
     header('Location:account.php');
     exit();
 }
-require_once 'menu.php';
+require_once 'functions.php';
 ?>
 
 <!DOCTYPE html>
