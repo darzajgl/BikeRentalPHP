@@ -1,5 +1,6 @@
 <?php
 SESSION_START();
+include_once "menu.php"
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -13,38 +14,6 @@ SESSION_START();
 </head>
 <body>
 <div id="container">
-    <!--    <div id="logo">-->
-    <!--        BIKE RENTAL-->
-    <!--    </div>-->
-
-
-    <div id="topbar">
-        <div id="topbar-left">
-            <img src="images/cyclist_ws.png">
-        </div>
-        <div id="topbar-right">
-            BIKE RENTAL<br/>
-        </div>
-        <div style="clear:both;"></div>
-    </div>
-
-    <div id="menu">
-        <div class="option">Strona Główna</div>
-        <div class="option">Konto</div>
-        <div class="option">Administracja</div>
-        <div class="option">Informacje</div>
-        <div class="option">Koszyk</div>
-        <div style="clear:both;"></div>
-    </div>
-<!--    <div id="sidebar">-->
-<!--        <div class="option-left">Strona Główna</div>-->
-<!--        <div class="option-left">Konto</div>-->
-<!--        <div class="option-left">Administracja</div>-->
-<!--        <div class="option-left">Koszyk</div>-->
-<!--        <div class="option-left">Informacje</div>-->
-<!--        <div style="clear:both;"></div>-->
-<!--    </div>-->
-
 
     <div id="content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus mi ac augue sagittis, at euismod metus

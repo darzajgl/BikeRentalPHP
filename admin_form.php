@@ -13,17 +13,17 @@ require_once 'menu.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Strona logowania</title>
+    <title>Strona administracyjna</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <form action="login_validation.php" method="post">
-    <h1>Strona logowania</h1>
+    <h1>Strona administracyjna</h1>
     <fieldset>
 
-        <input type="text" name="login" required placeholder="login" id="login">
+        <input type="text" name="login" required placeholder="Login administratora" id="login">
         <br>
         <input type="password" name="haslo"  required placeholder="Hasło" id="haslo" required>
         <br>
