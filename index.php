@@ -1,6 +1,6 @@
 <?php
 SESSION_START();
-include_once "menu.php"
+include_once 'menu.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -12,32 +12,74 @@ include_once "menu.php"
     <link href='https://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet'
           type="text/css">
 </head>
+<?php
+menu('Strona główna');
+?>
 <body>
 <div id="container">
+<!--    <<img src="images/cyclist_ws.png" alt="Zdjęcie roweru" style="height: calc(100% - 10px);">-->
 
-    <div id="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus mi ac augue sagittis, at euismod metus
-        dapibus. Suspendisse et diam sed urna luctus iaculis et ac nibh. Sed semper ex ut diam pellentesque rutrum.
-        Mauris et lorem eros. Nunc dictum imperdiet tellus, in viverra justo ultricies at. Quisque sagittis consequat
-        rutrum. Donec euismod odio sed nisl, sit amet porta urna luctus et. Sed sit amet nisl at diam eleifend facilisis
-        a
-        eget ligula. Praesent dolor velit, rhoncus in sodales sit amet, dapibus at velit. Pellentesque vulputate purus
-        nisi, ac viverra velit iaculis a.
-
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus mi ac augue sagittis, at euismod metus
-        dapibus. Suspendisse et diam sed urna luctus iaculis et ac nibh. Sed semper ex ut diam pellentesque rutrum.
-        Mauris et lorem eros. Nunc dictum imperdiet tellus, in viverra justo ultricies at. Quisque sagittis consequat
-        rutrum. Donec euismod odio sed nisl ullamcorper, in tristique lectus tempor. Nam in est at nisi cursus convallis
-        vitae nec risus. Nam posuere velit vestibulum, placerat sapien vel, molestie
-        orci. Sed vel metus nec elit luctus venenatis id suscipit ipsum. Phasellus finibus dolor in laoreet ornare.
-        Suspendisse lobortis nisl nisl, sit amet porta urna luctus et. Sed sit amet nisl at diam eleifend facilisis a
-        eget ligula. Praesent dolor velit, rhoncus in sodales sit amet, dapibus at velit. Pellentesque vulputate purus
-        nisi, ac viverra velit iaculis a.
+    <div class="box">
+        <div class="box-left">
+            <img src="images/gravel1.jpg" alt="Zdjęcie roweru" class="box-image">
+        </div>
+        <div class="box-center">
+            <h3 class="box-name">ROWER111</h3>
+            <p class="box-description">Szybki rower</p>
+        </div>
+        <div class="box-right">
+            <p class="box-price">Cena: 6666 PLN</p>
+            <button type="submit" class="box-button">Dodaj</button>
+        </div>
     </div>
-    <div style="clear:both;"></div>
-    <div id="footer"> *********PROJEKT TI********</div>
+    <div class="box">
+        <div class="box-left">
+            <img src="images/city1.jpg" alt="Zdjęcie roweru" class="box-image">
+        </div>
+        <div class="box-center">
+            <h3 class="box-name">ROWER111</h3>
+            <p class="box-description">Szybki rower</p>
+        </div>
+        <div class="box-right">
+            <p class="box-price">Cena: 6666 PLN</p>
+            <button type="submit" class="box-button">Dodaj</button>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-left">
+            <img src="images/road1.jpg" alt="Zdjęcie roweru" class="box-image">
+        </div>
+        <div class="box-center">
+            <h3 class="box-name">ROWER111</h3>
+            <p class="box-description">Szybki rower</p>
+        </div>
+        <div class="box-right">
+            <p class="box-price">Cena: 6666 PLN</p>
+            <button type="submit" class="box-button">Dodaj</button>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-left">
+            <img src="images/electric1.jpg" alt="Zdjęcie roweru" class="box-image">
+        </div>
+        <div class="box-center">
+            <h3 class="box-name">ROWER111</h3>
+            <p class="box-description">Szybki rower</p>
+        </div>
+        <div class="box-right">
+            <p class="box-price">Cena: 6666 PLN</p>
+            <button type="submit" class="box-button">Dodaj</button>
+        </div>
+    </div>
+
+
+
+<!--    <div style="clear:both;"></div>-->
 
 </div>
-
 </body>
+<?php
+footer();
+?>
 </html>

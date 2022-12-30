@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once 'menu.php';
 //sprawdzenie czy ktoś jest już zalogowany
 if ((isset($_SESSION['logged'])) && ($_SESSION['logged'] == true)) {
     header('Location:account.php');
@@ -13,14 +14,15 @@ require_once 'menu.php';
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Strona logowania</title>
+    <title>Logowanie</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+<?php
+menu('Logowanie');
+?>
 <body>
 <form action="login_validation.php" method="post">
-    <h1>Strona logowania</h1>
     <fieldset>
 
         <input type="text" name="login" required placeholder="login" id="login">
@@ -37,9 +39,11 @@ require_once 'menu.php';
     <fieldset>
 
         <input type="submit" value="Zaloguj się">
-        <br>
-        <br><a href="index.php">Przejdź do strony głównej</a>
+
     </fieldset>
 </form>
 </body>
+<?php
+footer();
+?>
 </html>

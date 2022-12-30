@@ -14,7 +14,9 @@ include_once 'menu.php';
     <title>Konto</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
+<?php
+menu('Konto');
+?>
 <body>
 <form>
     <fieldset>
@@ -31,9 +33,11 @@ include_once 'menu.php';
 
         echo "<a href ='logout.php'>Wyloguj się!</a>";
         echo"<br><br>";
-        echo "<a href='index.php'>Przejdź do strony głównej</a>"
         ?>
     </fieldset>
 </form>
 </body>
+<?php
+footer();
+?>
 </html>

@@ -10,13 +10,15 @@ if (isset($_SESSION['error_server'])) {
 <html lang="pl-PL">
 <head>
     <meta charset="utf-8">
-    <title>Formularz rejestracji</title>
+    <title>Rejestracja</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
+<?php
+menu('Rejestracja');
+?>
 <body>
 <form action="register_validation.php" method="post">
-    <h1>Rejestracja</h1>
     <fieldset>
         <legend>Dane osobowe</legend>
         <input type="text" name="imie" required placeholder="Imię" id="imie">
@@ -105,10 +107,12 @@ if (isset($_SESSION['error_server'])) {
     <fieldset>
         <div class="g-recaptcha" data-sitekey="6Lcz2Z0jAAAAALipOlsa3fPD1iNdwUzZ41M5RHG4"></div>
         <input type="submit" value="Zarejestruj się">
-        <br><a href="index.php">Przejdź do strony głównej</a>
     </fieldset>
 
 </form>
 </body>
+<?php
+footer();
+?>
 </html>
 

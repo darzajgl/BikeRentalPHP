@@ -1,6 +1,6 @@
 <?php
 include_once 'menu.php';
-"INFORMACJE";
+
 
 ?>
 <!DOCTYPE html>
@@ -11,18 +11,34 @@ include_once 'menu.php';
     <title>Informacje</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
+<?php
+menu('Informacje');
+?>
 <body>
 <div class="container">
-    <div id="content"> <br><a href="index.php">Przejdź do strony głównej</a>
-<!---->
-<!--    </div>-->
-<!--    <div style="clear:both;"></div>-->
-<!--    <div id="footer"> *********PROJEKT TI********</div>-->
+    <div id="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus mi ac augue sagittis, at euismod metus
+        dapibus. Suspendisse et diam sed urna luctus iaculis et ac nibh. Sed semper ex ut diam pellentesque rutrum.
+        Mauris et lorem eros. Nunc dictum imperdiet tellus, in viverra justo ultricies at. Quisque sagittis consequat
+        rutrum. Donec euismod odio sed nisl, sit amet porta urna luctus et. Sed sit amet nisl at diam eleifend facilisis
+        a
+        eget ligula. Praesent dolor velit, rhoncus in sodales sit amet, dapibus at velit. Pellentesque vulputate purus
+        nisi, ac viverra velit iaculis a.
 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus mi ac augue sagittis, at euismod metus
+        dapibus. Suspendisse et diam sed urna luctus iaculis et ac nibh. Sed semper ex ut diam pellentesque rutrum.
+        Mauris et lorem eros. Nunc dictum imperdiet tellus, in viverra justo ultricies at. Quisque sagittis consequat
+        rutrum. Donec euismod odio sed nisl ullamcorper, in tristique lectus tempor. Nam in est at nisi cursus convallis
+        vitae nec risus. Nam posuere velit vestibulum, placerat sapien vel, molestie
+        orci. Sed vel metus nec elit luctus venenatis id suscipit ipsum. Phasellus finibus dolor in laoreet ornare.
+        Suspendisse lobortis nisl nisl, sit amet porta urna luctus et. Sed sit amet nisl at diam eleifend facilisis a
+        eget ligula. Praesent dolor velit, rhoncus in sodales sit amet, dapibus at velit. Pellentesque vulputate purus
+        nisi, ac viverra velit iaculis a.
+    </div>
 </div>
-    <?php
-    footer();
-    ?>
+</div>
 </body>
+<?php
+footer();
+?>
 </html>
