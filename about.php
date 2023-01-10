@@ -2,7 +2,7 @@
 session_start();
 include_once 'functions.php';
 
-
+menu('Informacje');
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -12,9 +12,6 @@ include_once 'functions.php';
     <title>Informacje</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<?php
-menu('Informacje');
-?>
 <body>
 <div class="container">
     <div id="content">

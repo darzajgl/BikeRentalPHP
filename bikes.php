@@ -47,6 +47,13 @@ try {
 if (!$connection) {
     echo "Błąd podczas łączenia z bazą danych: " . mysqli_connect_error();
 }
+
+if(isset($_POST['product_id'])) {
+    header('Location: order_summary.php');
+    exit;
+}
+
+menu('Strona główna');
 ?>
 
 <!DOCTYPE html>
@@ -54,14 +61,11 @@ if (!$connection) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Strona główna</title>
+    <title>Wybór roweru</title>
     <link rel="stylesheet" href="style.css">
     <link href='http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet'
           type="text/css">
 </head>
-<?php
-menu('Strona główna');
-?>
 <body>
 <div id="container">
     <?php

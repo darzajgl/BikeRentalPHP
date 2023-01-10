@@ -12,7 +12,7 @@ if (isset($_SESSION['error_server'])) {
     <meta charset="utf-8">
     <title>Rejestracja</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!--    <script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 </head>
 <?php
 menu('Rejestracja');
@@ -76,7 +76,7 @@ menu('Rejestracja');
             unset($_SESSION['error_street']);
         }
         ?>
-        <input type="text" name="house_number" required placeholder="Nrumer domu/mieszkania" id="house_number"><br/>
+        <input type="text" name="house_number" required placeholder="Numer domu/mieszkania" id="house_number"><br/>
         <?php
         if (isset($_SESSION['error_house_number'])) {
             echo $_SESSION['error_house_number'];
@@ -101,7 +101,7 @@ menu('Rejestracja');
 
     </fieldset>
     <fieldset>
-        <div class="g-recaptcha" data-sitekey="6Lcz2Z0jAAAAALipOlsa3fPD1iNdwUzZ41M5RHG4"></div>
+<!--        <div class="g-recaptcha" data-sitekey="6Lcz2Z0jAAAAALipOlsa3fPD1iNdwUzZ41M5RHG4"></div>-->
         <input type="submit" value="Zarejestruj się">
     </fieldset>
 

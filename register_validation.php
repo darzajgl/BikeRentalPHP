@@ -3,8 +3,13 @@ session_start();
 //wylogowanie użytkownika, jeśli był zalogowany
 $_SESSION['logged'] = false;
 
+//przekierowanie do register_form
+if (!isset($_POST['name'])) {
+    header('Location: register_form.php');
+    exit();
+}
 
-if (isset($_POST['imie'])) {
+if (isset($_POST['name'])) {
     //przypisanie zmiennych
     $status_OK = true;
     $name = $_POST['name'];

@@ -39,6 +39,10 @@ menu('Logowanie');
     <fieldset>
 
         <input type="submit" value="Zaloguj się">
+        <br>
+        <hr>
+        <p>Nie masz konta?</p>
+        <a href="register_form.php">Zarejestruj się!</a>
 
     </fieldset>
 </form>
