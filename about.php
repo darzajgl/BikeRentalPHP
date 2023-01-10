@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once 'functions.php';
 
 
@@ -38,7 +39,8 @@ menu('Informacje');
 </div>
 </div>
 </body>
+</html>
+
 <?php
 footer();
 ?>
-</html>

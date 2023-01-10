@@ -1,36 +1,36 @@
 <?php
-SESSION_START();
+session_start();
+
 include_once 'functions.php';
-require_once "db_config.php";
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+//require_once "db_config.php";
 //mysqli_report(MYSQLI_REPORT_STRICT);
-//połączenie z DB
+//
+//// Połączenie z bazą danych
+//try {
+//    $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+//
+//    if ($connection->connect_errno !== 0) {
+//        throw new Exception((mysqli_connect_error()));
+//    }
+//} catch (Exception $error) {
+//    $_SESSION['error_server'] = $error->getMessage();
+//    header('Location:index.php');
+//}
+//
+//if (!$connection) {
+//    echo "Błąd podczas łączenia z bazą danych: " . mysqli_connect_error();
+//}
 
 
-try {
-    $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-    if ($connection->connect_errno !== 0) {
-        throw new Exception((mysqli_connect_error()));
-    } else {
-            $connection->close();
-        }
-
-} catch
-(Exception $error) {
-    $_SESSION['error_server'] = $error->getMessage();
-    header('Location:register_form.php');
-
+if (isset($_POST['add'])) {
+    try {
+        data_check($_POST['start_date'], $_POST['end_date']);
+        header('Location: bikes.php');
+    } catch (Exception $e) {
+        $error_message = $e->getMessage();
+    }
 }
 
-if (!$connection) {
-    echo "Błąd podczas łączenia z bazą danych: " . mysqli_connect_error();
-} else {
-    echo "Połączenie z bazą danych zostało nawiązane.";
-}
 ?>
 
 <!DOCTYPE html>
@@ -40,87 +40,34 @@ if (!$connection) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>Strona główna</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet'
+    <link href='http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet'
           type="text/css">
 </head>
 <?php
-//menu('Strona główna');
-//?>
+menu('Strona główna');
+?>
 <body>
 <div id="container">
-<!---->
-<!--        --><?php
-//        $sql = "SELECT * FROM bikes";
-//        $result = mysqli_query($connection, $sql);
-//        while ($row = mysqli_fetch_assoc($result)) {
-//
-//            element($row['name'], $row['price'], $row['description'], $row['image']);
-            element('Rower', '6666', 'rowerek','images/gravel1.jpg');
-//        }
+    <form action="index.php" method="post">
+        <label for="start_date">Data początkowa:</
+        </label>
+        <input type="date" name="start_date" min="<?= date('Y-m-d'); ?>"
+               max="<?= date('Y-m-d', strtotime('+1 year')); ?>" required>
+        <label for="end_date">Data końcowa:</label>
+        <input type="date" name="end_date" min="<?= date('Y-m-d', strtotime('+1 day')); ?>"
+               max="<?= date('Y-m-d', strtotime('+1 year')); ?>" required>
+        <br>
+        <?php
+        if (isset($error_message)) {
+            echo '<span style="color: red">' . $error_message . '</span><br>';
+        }
         ?>
-
-    <!--
-        <div class="box">
-            <div class="box-left">
-                <img src="images/gravel1.jpg" alt="Zdjęcie roweru" class="box-image">
-            </div>
-            <div class="box-center">
-                <h3 class="box-name">ROWER111</h3>
-                <p class="box-description">Szybki rower</p>
-            </div>
-            <div class="box-right">
-                <p class="box-price">Cena: 6666 PLN</p>
-                <button type="submit" class="box-button">Dodaj</button>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="box-left">
-                <img src="images/city1.jpg" alt="Zdjęcie roweru" class="box-image">
-            </div>
-            <div class="box-center">
-                <h3 class="box-name">ROWER111</h3>
-                <p class="box-description">Szybki rower</p>
-            </div>
-            <div class="box-right">
-                <p class="box-price">Cena: 6666 PLN</p>
-                <button type="submit" class="box-button">Dodaj</button>
-            </div>
-        </div>
-        <div class="box">
-            <div class="box-left">
-                <img src="images/road1.jpg" alt="Zdjęcie roweru" class="box-image">
-            </div>
-            <div class="box-center">
-                <h3 class="box-name">ROWER111</h3>
-                <p class="box-description">Szybki rower</p>
-            </div>
-            <div class="box-right">
-                <p class="box-price">Cena: 6666 PLN</p>
-                <button type="submit" class="box-button">Dodaj</button>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="box-left">
-                <img src="images/electric1.jpg" alt="Zdjęcie roweru" class="box-image">
-            </div>
-            <div class="box-center">
-                <h3 class="box-name">ROWER111</h3>
-                <p class="box-description">Szybki rower</p>
-            </div>
-            <div class="box-right">
-                <p class="box-price">Cena: 6666 PLN</p>
-                <button type="submit" class="box-button">Dodaj</button>
-            </div>
-        </div>
-
-        -->
-
+        <p><input type="submit" name="add" value="Przejdź do wyboru roweru"></p>
+    </form>
 </div>
 </body>
+</html>
 <?php
 footer();
 ?>
-</html>
+

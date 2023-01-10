@@ -27,7 +27,7 @@ menu('Logowanie');
 
         <input type="text" name="login" required placeholder="login" id="login">
         <br>
-        <input type="password" name="haslo"  required placeholder="Hasło" id="haslo" required>
+        <input type="password" name="password"  required placeholder="Hasło" id="password" required>
         <br>
     </fieldset>
     <?php

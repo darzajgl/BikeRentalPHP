@@ -32,6 +32,25 @@ body {
     font-stretch: expanded;
     height: 50px;
 }
+logo.right {
+    background: #62C51B;
+    width: 10%;
+    font-size: 25px;
+    text-align: right;
+    font-family: "Verdana", italic;
+    font-weight: bold;
+    font-stretch: expanded;
+    height: 50px;
+}
+.logo-item {
+    text-decoration: none;
+    color: #ff8080; /* pomarańczowy */
+    font-size: 1.2em;
+}
+
+.logo-item.active {
+    color: #7df59f;
+}
 
 #menu {
     display: flex;
@@ -166,6 +185,11 @@ form {
     border-radius: 5px;
 }
 
+
+.shopping-cart {
+. box;
+}
+
 input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
     padding: 12px 20px;
@@ -197,7 +221,7 @@ h2 {
 }
 
 .box-left {
-    width: 30%;
+    width: 25%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -211,7 +235,7 @@ h2 {
 }
 
 .box-center {
-    width: 60%;
+    width: 25%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -228,9 +252,20 @@ h2 {
     font-size: 14px;
 }
 
+.box-center-right {
+
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+}
+
 .box-right {
 
-    width: 30%;
+    width: 25%;
     height: 100%;
     display: flex;
     flex-direction: column;

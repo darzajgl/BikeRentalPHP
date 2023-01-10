@@ -21,7 +21,7 @@ menu('Rejestracja');
 <form action="register_validation.php" method="post">
     <fieldset>
         <legend>Dane osobowe</legend>
-        <input type="text" name="imie" required placeholder="Imię" id="imie">
+        <input type="text" name="name" required placeholder="Imię" id="name">
         <?php
         if (isset($_SESSION['error_imie'])) {
             echo $_SESSION['error_imie'];
@@ -30,7 +30,7 @@ menu('Rejestracja');
         ?>
         <br>
 
-        <input type="text" name="nazwisko" required placeholder="Nazwisko" id="nazwisko">
+        <input type="text" name="surname" required placeholder="Nazwisko" id="surname">
         <?php
         if (isset($_SESSION['error_nazwisko'])) {
             echo $_SESSION['error_nazwisko'];
@@ -49,7 +49,7 @@ menu('Rejestracja');
 
         <br>
 
-        <input type="password" name="haslo" required placeholder="Hasło" id="haslo">
+        <input type="password" name="password" required placeholder="Hasło" id="password">
         <?php
         if (isset($_SESSION['error_haslo'])) {
             echo $_SESSION['error_haslo'];
@@ -69,41 +69,37 @@ menu('Rejestracja');
     </fieldset>
     <fieldset>
         <legend>Dane adresowe</legend>
-        <input type="text" name="ulica" required placeholder="Ulica" id="ulica"><br/>
-        <input type="text" name="nr_domu" required placeholder="Nrumer domu/mieszkania" id="nr_domu"><br/>
-        <input type="text" name="kod_pocztowy" required placeholder="Kod pocztowy" id="kod_pocztowy"><br/>
-        <input type="text" name="miasto" required placeholder="Miasto" id="miasto"><br/>
+        <input type="text" name="street" required placeholder="Ulica" id="street"><br/>
+        <?php
+        if (isset($_SESSION['error_street'])) {
+            echo $_SESSION['error_street'];
+            unset($_SESSION['error_street']);
+        }
+        ?>
+        <input type="text" name="house_number" required placeholder="Nrumer domu/mieszkania" id="house_number"><br/>
+        <?php
+        if (isset($_SESSION['error_house_number'])) {
+            echo $_SESSION['error_house_number'];
+            unset($_SESSION['error_house_number']);
+        }
+        ?>
+        <input type="text" name="zip_code" required placeholder="Kod pocztowy" id="zip_code"><br/>
+        <?php
+        if (isset($_SESSION['error_zip_code'])) {
+            echo $_SESSION['error_zip_code'];
+            unset($_SESSION['error_zip_code']);
+        }
+        ?>
+        <input type="text" name="city" required placeholder="Miasto" id="city"><br/>
 
         <?php
-        if (isset($_SESSION['error_adres'])) {
-            echo $_SESSION['error_adres'];
-            unset($_SESSION['error_adres']);
+        if (isset($_SESSION['error_city'])) {
+            echo $_SESSION['error_city'];
+            unset($_SESSION['error_city']);
         }
         ?>
 
     </fieldset>
-<!--    <fieldset>-->
-<!--        <legend>Wykształcenie</legend>-->
-<!--        <input type="radio" id="podstawowe" name="wyksztalcenie" value="podstawowe">-->
-<!--        <label for="podstawowe">Podstawowe</label></b>-->
-<!--        <input type="radio" id="srednie" name="wyksztalcenie" value="srednie">-->
-<!--        <label for="srednie">Średnie</label></b>-->
-<!--        <input type="radio" id="wyzsze" name="wyksztalcenie" value="wyzsze">-->
-<!--        <label for="wyzsze">Wyższe</label><br>-->
-<!--    </fieldset>-->
-<!--    <fieldset>-->
-<!--        <legend>Zainteresowania</legend>-->
-<!--        <input type="checkbox" id="sport" name="zainteresowania[]" value="sport">-->
-<!--        <label for="sport">Sport</label><br>-->
-<!--        <input type="checkbox" id="kultura" name="zainteresowania[]" value="kultura">-->
-<!--        <label for="kultura">Kultura</label><br>-->
-<!--        <input type="checkbox" id="podroze" name="zainteresowania[]" value="podroze">-->
-<!--        <label for="podroze">Podróże</label><br>-->
-<!--        <input type="checkbox" id="podroze" name="zainteresowania[]" value="kino">-->
-<!--        <label for="kino">Kino</label><br>-->
-<!--        <input type="checkbox" id="kino" name="zainteresowania[]" value="muzyka">-->
-<!--        <label for="muzyka">Muzyka</label><br>-->
-<!--    </fieldset>-->
     <fieldset>
         <div class="g-recaptcha" data-sitekey="6Lcz2Z0jAAAAALipOlsa3fPD1iNdwUzZ41M5RHG4"></div>
         <input type="submit" value="Zarejestruj się">

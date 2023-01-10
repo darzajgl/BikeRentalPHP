@@ -25,11 +25,9 @@ menu('Konto');
         echo "<p>Witaj " . $_SESSION['imie'] . " " . $_SESSION['nazwisko'] . "!</p>";
         echo "<p><b>Twoje dane:</b></p>";
         echo "<p>Login: " . $_SESSION['login'] . "</p>";
-
         echo "<p>E-mail: " . $_SESSION['email'] . "</p>";
-        echo "<p>Adres: " . $_SESSION['adres'] . "</p>";
-        echo "<p>Wykształcenie: " . $_SESSION['wyksztalcenie'] . "</p>";
-        echo "<p>Zainteresowania: " . $_SESSION['zainteresowania'] . "</p>";
+
+
 
 //        echo "<a href ='logout.php'>Wyloguj się!</a>";
         echo"<br><br>";
@@ -37,7 +35,8 @@ menu('Konto');
     </fieldset>
 </form>
 </body>
+</html>
+
 <?php
 footer();
 ?>
-</html>
