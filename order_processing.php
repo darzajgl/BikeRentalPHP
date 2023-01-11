@@ -28,6 +28,7 @@ if (!isset($_SESSION['start_date']) || !isset($_SESSION['end_date']) || (!isset(
 }
 
 //dane użytkownika
+$user_id = $_SESSION['user_id'];
 $name = $_SESSION['name'];
 $surname = $_SESSION['surname'];
 $login = $_SESSION['login'];
@@ -39,7 +40,13 @@ $zip_code = $_SESSION['zip_code'];
 $city = $_SESSION['city'];
 
 //dane o produkcie
+$first_item_id = $_SESSION['cart'][0]['bike_id'];
+$first_item_name = $_SESSION['cart'][0]['name'];
+
+
+
 $product_price = $_SESSION['product_price'];
+$first_item_bike_id = $_SESSION['cart'][0]['bike_id'];
 $product_name = $_SESSION['product_name'];
 
 //dane o wypożyczeniu
@@ -48,6 +55,19 @@ $end_date = $_SESSION['end_date'];
 $diff_days = $_SESSION['diff_days'];
 $total_price = $_SESSION['total_price'];
 
+
+
+$user_id = $_SESSION['user_id'];
+$bike_id = $_SESSION['cart'][0]['bike_id'];
+$start_date = $_SESSION['start_date'];
+$end_date = $_SESSION['end_date'];
+
+$sql = "INSERT INTO `rentals`( `user_id`, `bike_id`, `start_date`, `end_date`) VALUES ('$user_id','$bike_id','$start_date','$end_date')";
+$result = mysqli_query($connection, $sql);
+if (!$result) {
+    throw new Exception("Błąd zapytania: " . mysqli_error($connection));
+
+}
 
 // Tworzenie wiadomości
 $to = $_SESSION['email'];
@@ -69,18 +89,13 @@ $message = '
     ' . $zip_code . ' ' . $city . '</p>
     <hr>
 <h2>Zamówienie:</h2>
-      
-
-  <tr><b>Łączna kwota zamówienia:</b>
-  <td style="border-left: 1px solid black;"><b>' . $total_price . ' zł</b></td>
-  </tr>
-  </table>
-  
+   
+ 
 <table style="border: 2px solid black; border-collapse: collapse;">
 <thead>
   <tr>
     <th style="text-align: left; border: 1px solid black">Nazwa produktu</th>
-    <th style="text-align: left; border: 1px solid black">' . $product_name . '</th>
+    <th style="text-align: left; border: 1px solid black">' .$_SESSION['cart'][0]['name']. '</th>
   </tr>
 </thead>
 <tbody>

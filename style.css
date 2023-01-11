@@ -287,8 +287,8 @@ h2 {
     /*padding: 20px;*/
     margin-bottom: 60px;
     margin-right: 10px;
-    width: 120px;
-    height: 30px;
+    width: auto;
+    height: auto;
     font-size: 14px;
     background: linear-gradient(#1B3309, #62C51B);
     border-radius: 30px;

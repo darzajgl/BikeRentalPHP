@@ -79,7 +79,7 @@ menu('Podsumowanie zamówienia');
                 <p>Cena całkowita: <?php echo $_SESSION['total_price']; ?> PLN</p>
             </div>
             <div class="box-right">
-                <p><input type="submit" name="add" value="Zatwierdź zamówienie"></p>
+                <p><input type="submit" name="add" class="box-button" value="Zatwierdź zamówienie"></p>
             </div>
         </div>
     </form>

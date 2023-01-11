@@ -20,31 +20,38 @@ menu('Konto');
     <body>
     <form>
         <fieldset>
-
             <?php
             //sprawdzenie czy zalogowany
             if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
-                echo "<p>Witaj " . $_SESSION['name'] . " " . $_SESSION['surname'] . "!</p>";
+                //wyświetlenie danych
+                echo "<p>Witaj!</p>";
                 echo "<p><b>Twoje dane:</b></p>";
+                echo "<p>Imię: " . $_SESSION['name'] . "</p>";
+                echo "<p>Nazwisko: " . $_SESSION['surname'] . "</p>";
                 echo "<p>Login: " . $_SESSION['login'] . "</p>";
                 echo "<p>E-mail: " . $_SESSION['email'] . "</p>";
-                echo "<p>E-mail: " . $_SESSION['street'] . "</p>";
-                echo "<p>E-mail: " . $_SESSION['house_number'] . "</p>";
-                echo "<p>E-mail: " . $_SESSION['zip_code'] . "</p>";
-                echo "<p>E-mail: " . $_SESSION['city'] . "</p>";
+                echo "<p>Ulica: " . $_SESSION['street'] . "</p>";
+                echo "<p>Numer domu/mieszkania: " . $_SESSION['house_number'] . "</p>";
+                echo "<p>Kod pocztowy: " . $_SESSION['zip_code'] . "</p>";
+                echo "<p>Miasto: " . $_SESSION['city'] . "</p>";
 
                 echo "<a href ='logout.php'>Wyloguj się!</a>";
                 echo "<br><br>";
 
             } else {
                 echo "Musisz być zalogowany aby podejrzeć swoje dane";
-                echo '<br><a href="login_form.php">Przejdz do strony logowania!</a>';
+                echo '<hr><a href="login_form.php">Przejdz do strony logowania!</a>';
             }
             ?>
         </fieldset>
-        <fieldset>
-            <br><a href="order_validation.php">Potwierdz zamowienie!</a>
-        </fieldset>
+            <?php
+            // sprawdzenie czy daty i produkt zostały wybrane
+            if (isset($_SESSION['start_date']) || isset($_SESSION['end_date']) || (isset($_SESSION['cart']))) {
+                echo '<fieldset>
+                        <br><a href="order_processing.php">Potwierdz zamowienie!</a>
+                      </fieldset>';
+            }
+            ?>
     </form>
     </body>
     </html>

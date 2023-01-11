@@ -29,6 +29,8 @@ try {
                     // flaga czy zalogowany
                     $_SESSION['logged'] = true;
                     //dane sesyjne
+
+                    $_SESSION['user_id'] = $row['user_id'];
                     $_SESSION['name'] = $row['name'];
                     $_SESSION['surname'] = $row['surname'];
                     $_SESSION['login'] = $row['login'];

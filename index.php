@@ -31,7 +31,7 @@ if (isset($_POST['add'])) {
     }
 }
 
-menu('Strona główna');
+menu('Wybierz daty');
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +68,7 @@ menu('Strona główna');
                 ?>
             </div>
             <div class="box-right">
-                <p><input type="submit" name="add" value="Przejdź do wyboru roweru"></p>
+                <p><input type="submit" name="add" class="box-button" value="Wybierz"></p>
             </div>
         </div>
     </form>
