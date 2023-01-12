@@ -48,7 +48,7 @@ menu('Konto');
             // sprawdzenie czy daty i produkt zostały wybrane
             if (isset($_SESSION['start_date']) || isset($_SESSION['end_date']) || (isset($_SESSION['cart']))) {
                 echo '<fieldset>
-                        <br><a href="order_processing.php">Potwierdz zamowienie!</a>
+                        <p><a href="order_processing.php" class="box-button">Potwierdz zamowienie!</a></p>
                       </fieldset>';
             }
             ?>

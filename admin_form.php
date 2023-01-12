@@ -2,10 +2,10 @@
 session_start();
 include_once 'functions.php';
 //sprawdzenie czy ktoś jest już zalogowany
-if ((isset($_SESSION['logged'])) && ($_SESSION['logged'] == true)) {
-    header('Location:account.php');
-    exit();
-}
+//if ((isset($_SESSION['logged'])) && ($_SESSION['logged'] == true)) {
+//    header('Location:account.php');
+//    exit();
+//}
 require_once 'functions.php';
 ?>
 

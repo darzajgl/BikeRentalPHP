@@ -7,16 +7,16 @@ define('DB_PASSWORD', '');
 define('DB_NAME', 'bike_rental');
 
 // tworzenie połączenia z bazą danych
-$connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+//try {
+//    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+//    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//} catch (PDOException $e) {
+//    echo "Połączenie z bazą danych nie powiodło się: " . $e->getMessage();
+//}
 
-// sprawdzanie, czy połączenie zostało nawiązane
-if (!$connection) {
-    die("Połączenie z bazą danych nie powiodło się: " . mysqli_connect_error());
-}
-
-// tutaj można dodać kod do wykonywania zapytań do bazy danych
+//  jakieś zapytania do bazy danych??
 
 // zamknięcie połączenia z bazą danych
-mysqli_close($connection);
+$pdo = null;
 
 ?>

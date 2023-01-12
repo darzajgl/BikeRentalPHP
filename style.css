@@ -3,7 +3,7 @@ body {
     font-family: "Verdana", sans-serif;
     margin: 40px;
     padding: 0;
-    background: linear-gradient(to bottom, #E9F6DF, #ffffff);
+    background: linear-gradient(to bottom, #7e856e, #ffffff);
     min-height: 100vh;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 #logo {
-    background: #62C51B;
+    background: #64cb18;
     font-size: 25px;
     text-align: center;
     font-family: "Verdana", italic;

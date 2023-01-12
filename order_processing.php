@@ -23,7 +23,7 @@ if (!$connection) {
 
 
 // sprawdzenie czy daty i produkt zostały wybrane
-if (!isset($_SESSION['start_date']) || !isset($_SESSION['end_date']) || (!isset($_SESSION['cart']))) {
+if (!isset($_SESSION['start_date']) || !isset($_SESSION['end_date']) || (!isset($_SESSION['bike_id']))) {
     header('Location: index.php');
 }
 
@@ -40,29 +40,26 @@ $zip_code = $_SESSION['zip_code'];
 $city = $_SESSION['city'];
 
 //dane o produkcie
-$first_item_id = $_SESSION['cart'][0]['bike_id'];
-$first_item_name = $_SESSION['cart'][0]['name'];
-
-
-
-$product_price = $_SESSION['product_price'];
-$first_item_bike_id = $_SESSION['cart'][0]['bike_id'];
-$product_name = $_SESSION['product_name'];
+$product_id = $_SESSION['bike_id'];
+$product_price = $_SESSION['price'];
+$product_name = $_SESSION['bike_name'];
 
 //dane o wypożyczeniu
 $start_date = $_SESSION['start_date'];
 $end_date = $_SESSION['end_date'];
 $diff_days = $_SESSION['diff_days'];
+
+//informacja o cenie sumarycznej
 $total_price = $_SESSION['total_price'];
 
 
 
 $user_id = $_SESSION['user_id'];
-$bike_id = $_SESSION['cart'][0]['bike_id'];
+//$bike_id = $_SESSION['cart'][0]['bike_id'];
 $start_date = $_SESSION['start_date'];
 $end_date = $_SESSION['end_date'];
 
-$sql = "INSERT INTO `rentals`( `user_id`, `bike_id`, `start_date`, `end_date`) VALUES ('$user_id','$bike_id','$start_date','$end_date')";
+$sql = "INSERT INTO `rentals`( `user_id`, `bike_id`, `start_date`, `end_date`) VALUES ('$user_id','$product_id','$start_date','$end_date')";
 $result = mysqli_query($connection, $sql);
 if (!$result) {
     throw new Exception("Błąd zapytania: " . mysqli_error($connection));
@@ -95,7 +92,7 @@ $message = '
 <thead>
   <tr>
     <th style="text-align: left; border: 1px solid black">Nazwa produktu</th>
-    <th style="text-align: left; border: 1px solid black">' .$_SESSION['cart'][0]['name']. '</th>
+    <th style="text-align: left; border: 1px solid black">' .$product_name. '</th>
   </tr>
 </thead>
 <tbody>
@@ -121,7 +118,7 @@ $message = '
   </tr>
 </tbody>
 </table>
- <p>Dziękujemy za dokonanie zamówienia w naszym sklepie. Zapraszamy ponownie. </p>
+ <p>Dziękujemy za dokonanie zamówienia. Zapraszamy po odbiór roweru w dniu ' . $start_date . '.</p>
   <p>Z poważaniem</p>
   <p>Zespół wypożyczalni</p>
   </body>

@@ -3,24 +3,15 @@ session_start();
 
 include_once 'functions.php';
 require_once "db_config.php";
-mysqli_report(MYSQLI_REPORT_STRICT);
 
 // Połączenie z bazą danych
-try {
-    $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-    if ($connection->connect_errno !== 0) {
-        throw new Exception((mysqli_connect_error()));
-    }
-} catch (Exception $error) {
-    $_SESSION['error_server'] = $error->getMessage();
-    header('Location:index.php');
-}
-
-if (!$connection) {
-    echo "Błąd podczas łączenia z bazą danych: " . mysqli_connect_error();
-}
-
+//try {
+//    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+//} catch (PDOException $error) {
+//    $_SESSION['error_server'] = $error->getMessage();
+//    header('Location:index.php');
+//    exit;
+//}
 
 if (isset($_POST['add'])) {
     try {
