@@ -26,14 +26,20 @@ menu('Logowanie');
     <fieldset>
 
         <input type="text" name="login" required placeholder="login" id="login">
+        <?php
+        if (isset($_SESSION['login_error'])) {
+            echo $_SESSION['login_error'];
+            unset($_SESSION['login_error']);
+        }
+        ?>
         <br>
-        <input type="password" name="password"  required placeholder="Hasło" id="password" required>
+        <input type="password" name="password"  placeholder="Hasło" id="password" required>
         <br>
     </fieldset>
     <?php
-    if (isset($_SESSION['login_error'])) {
-        echo $_SESSION['login_error'];
-        unset($_SESSION['login_error']);
+    if (isset($_SESSION['password_error'])) {
+        echo $_SESSION['password_error'];
+        unset($_SESSION['password_error']);
     }
     ?>
     <fieldset>

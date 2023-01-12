@@ -3,24 +3,14 @@ session_start();
 
 include_once 'functions.php';
 require_once "db_config.php";
-mysqli_report(MYSQLI_REPORT_STRICT);
 
-// Połączenie z bazą danych
+// Połączenie z bazą danych przy użyciu PDO
 try {
-    $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-    if ($connection->connect_errno !== 0) {
-        throw new Exception((mysqli_connect_error()));
-    }
-} catch (Exception $error) {
+    $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+} catch (PDOException $error) {
     $_SESSION['error_server'] = $error->getMessage();
     header('Location:index.php');
 }
-
-if (!$connection) {
-    echo "Błąd podczas łączenia z bazą danych: " . mysqli_connect_error();
-}
-
 
 // sprawdzenie czy daty i produkt zostały wybrane
 if (!isset($_SESSION['start_date']) || !isset($_SESSION['end_date']) || (!isset($_SESSION['bike_id']))) {
@@ -55,16 +45,19 @@ $total_price = $_SESSION['total_price'];
 
 
 $user_id = $_SESSION['user_id'];
-//$bike_id = $_SESSION['cart'][0]['bike_id'];
+
 $start_date = $_SESSION['start_date'];
 $end_date = $_SESSION['end_date'];
 
-$sql = "INSERT INTO `rentals`( `user_id`, `bike_id`, `start_date`, `end_date`) VALUES ('$user_id','$product_id','$start_date','$end_date')";
-$result = mysqli_query($connection, $sql);
-if (!$result) {
-    throw new Exception("Błąd zapytania: " . mysqli_error($connection));
+//przygotowanie zapytanie zabezpieczone przed sql injection
+$stmt = $pdo->prepare('INSERT INTO `rentals`( `user_id`, `bike_id`, `start_date`, `end_date`) VALUES (:user_id, :product_id, :start_date, :end_date)');
+$stmt->bindParam(':user_id', $user_id);
+$stmt->bindParam(':product_id', $product_id);
+$stmt->bindParam(':start_date', $start_date);
+$stmt->bindParam(':end_date', $end_date);
 
-}
+//wykonanie zapytanie
+$stmt->execute();
 
 // Tworzenie wiadomości
 $to = $_SESSION['email'];
@@ -133,7 +126,7 @@ if (mail($to, $subject, $message, $headers)) {
     header('Location: order_confirmation.php');
 
 } else {
-    "NIEPOWODZENIE";
+    "NIEPOWODZENIE WYSYŁANIA WIADOMOŚCI";
 }
 
 

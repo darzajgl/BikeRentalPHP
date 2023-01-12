@@ -16,9 +16,10 @@ function menu($page_title)
           <div class="option" onclick="location.href=\'account.php\'">Konto</div>
           <div class="option" onclick="location.href=\'login_form.php\'">Logowanie</div>
           <div class="option" onclick="location.href=\'register_form.php\'">Rejestracja</div>
-          <div class="option" onclick="location.href=\'admin_form.php\'">Administracja</div>
+          <div class="option" onclick="location.href=\'admin_form.php\'">Logowanie administratora</div>
+          <div class="option" onclick="location.href=\'admin_panel.php\'">Administracja</div>
           <div class="option" onclick="location.href=\'about.php\'">Informacje</div>
-          <div class="option" onclick="location.href=\'cart.php\'">Koszyk:
+          <div class="option" onclick="location.href=\'order_summary.php\'">Koszyk:
           <a href="cart.php" class="logo-item active">
           (';
     if (isset($_SESSION['cart'])) {

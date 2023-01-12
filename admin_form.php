@@ -1,12 +1,6 @@
 <?php
 session_start();
 include_once 'functions.php';
-//sprawdzenie czy ktoś jest już zalogowany
-//if ((isset($_SESSION['logged'])) && ($_SESSION['logged'] == true)) {
-//    header('Location:account.php');
-//    exit();
-//}
-require_once 'functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,20 +16,26 @@ require_once 'functions.php';
 menu('Administracja');
 ?>
 <body>
-<form action="login_validation.php" method="post">
+<form action="admin_validation.php" method="post">
     <fieldset>
+        <input type="text" name="admin_login" required placeholder="Login administratora" id="login">
+        <?php
+        if (isset($_SESSION['admin_login_error'])) {
+            echo $_SESSION['admin_login_error'];
+            unset($_SESSION['admin_login_error']);
+        }
+        ?>
+        <br>
+        <input type="password" name="admin_password"  placeholder="Hasło" id="admin_password" required>
+        <br>
+        <?php
+        if (isset($_SESSION['admin_password_error'])) {
+            echo $_SESSION['admin_password_error'];
+            unset($_SESSION['admin_password_error']);
+        }
+        ?>
 
-        <input type="text" name="login" required placeholder="Login administratora" id="login">
-        <br>
-        <input type="password" name="haslo"  required placeholder="Hasło" id="haslo" required>
-        <br>
     </fieldset>
-    <?php
-    if (isset($_SESSION['login_error'])) {
-        echo $_SESSION['login_error'];
-        unset($_SESSION['login_error']);
-    }
-    ?>
     <fieldset>
 
         <input type="submit" value="Zaloguj się">

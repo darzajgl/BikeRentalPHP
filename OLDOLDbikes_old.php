@@ -53,7 +53,7 @@ menu('Strona główna');
 <div id="container">
     <?php
     $sql = "SELECT * FROM bikes";
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($pdo, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
         element($row['name'], $row['price'], $row['description'], $row['image'], $row['bike_id']);
     }
