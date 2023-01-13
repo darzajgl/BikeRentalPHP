@@ -18,11 +18,12 @@ menu('Konto');
     </head>
 
     <body>
+    <div class="wrapper">
     <form>
         <fieldset>
             <?php
             //sprawdzenie czy zalogowany
-            if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
+            if (isset($_SESSION['logged']) && $_SESSION['logged']) {
                 //wyświetlenie danych
                 echo "<p>Witaj!</p>";
                 echo "<p><b>Twoje dane:</b></p>";
@@ -35,24 +36,25 @@ menu('Konto');
                 echo "<p>Kod pocztowy: " . $_SESSION['zip_code'] . "</p>";
                 echo "<p>Miasto: " . $_SESSION['city'] . "</p>";
 
-                echo "<a href ='logout.php'>Wyloguj się!</a>";
+                echo "<a href ='logout.php' class='box-button'>Wyloguj się!</a>";
                 echo "<br><br>";
 
             } else {
                 echo "Musisz być zalogowany aby podejrzeć swoje dane";
-                echo '<hr><a href="login_form.php">Przejdz do strony logowania!</a>';
+                echo '<hr><a href="login_form.php" class="box-button">Przejdz do strony logowania!</a>';
             }
             ?>
         </fieldset>
             <?php
             // sprawdzenie czy daty i produkt zostały wybrane
-            if (isset($_SESSION['start_date']) || isset($_SESSION['end_date']) || (isset($_SESSION['cart']))) {
+            if (isset($_SESSION['start_date']) && isset($_SESSION['end_date']) && isset($_SESSION['order_placed']) && $_SESSION['order_placed']) {
                 echo '<fieldset>
                         <p><a href="order_processing.php" class="box-button">Potwierdz zamowienie!</a></p>
                       </fieldset>';
             }
             ?>
     </form>
+    </div>
     </body>
     </html>
 

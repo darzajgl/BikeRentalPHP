@@ -116,7 +116,6 @@ if (isset($_POST['name'])) {
                 $_SESSION['zip_code'] = $zip_code;
                 $_SESSION['city'] = $city;
 
-
                 header('Location: account.php');
                 exit();
             } else {

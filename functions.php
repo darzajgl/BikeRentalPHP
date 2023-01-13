@@ -2,127 +2,48 @@
 function menu($page_title)
 {
     echo '
- <html lang="pl-PL">
-  <body>
-  <div id="container">
-      </div>
-      <div id="logo">
-          ' . $page_title . '
-      </div>
-      <div id="menu">
-          <div class="option" onclick="location.href=\'index.php\'">Wypożycz</div>
-          <div class="option" onclick="location.href=\'bikes.php\'">Rowery</div>
-          <div class="option" onclick="location.href=\'order_summary.php\'">Podsumowanie zamówienia</div>
-          <div class="option" onclick="location.href=\'account.php\'">Konto</div>
-          <div class="option" onclick="location.href=\'login_form.php\'">Logowanie</div>
-          <div class="option" onclick="location.href=\'register_form.php\'">Rejestracja</div>
-          <div class="option" onclick="location.href=\'admin_form.php\'">Logowanie administratora</div>
-          <div class="option" onclick="location.href=\'admin_panel.php\'">Administracja</div>
-          <div class="option" onclick="location.href=\'about.php\'">Informacje</div>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+</head>
+<body>
+<div class="wrapper">
+<div id="logo">
+    ' . $page_title . '
+</div>
+    <div class="nav">
+        <ol>
+            <li><a href="index.php">Strona główna</a></li>
+            <li><a>Wypożycz rower</a>
+                <ul>
+                    <li><a href="date_picker.php">Wybierz Daty</a></li>
+                    <li><a href="bikes.php">Wybierz Rower</a></li>
+                    <li><a href="order_summary.php">Zamówienie</a></li>
+                </ul>
+            </li>
+            <li><a>Panel klienta</a>
+                <ul>
+                    <li><a href="account.php">Konto</a></li>
+                    <li><a href="login_form.php">Logowanie</a></li>
+                    <li><a href="register_form.php">Rejestracja</a></li>
+                </ul>
+            </li>
+            <li><a>Administracja</a>
+                <ul>
+                    <li><a href="admin_form.php">Logowanie</a></li>
+                    <li><a href="admin_panel.php">Panel Administratora</a></li>
+                </ul>
+            </li>
+            <li><a href="about.php">Informacje</a></li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>
 
-          ';
-    echo '  
-</a>
-              </div>
-          </div>          
-          <div style="clear:both;"></div>
-      </div>
-  </div>
-  </body>
-  </html>';
-}
-
-
-function menu2($page_title)
-{
-    echo '
- <html lang="pl-PL">
-  <head>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-  <div id="container">
-      <div id="logo">
-          ' . $page_title . '
-      </div>
-      <div id="menu">
-          <div class="option" onclick="location.href=\'index.php\'">Strona główna</div>
-          <div class="dropdown">
-            <button class="dropbtn">Wypożycz rower</button>
-            <div class="dropdown-content">
-              <a href="date_picker.php">Wybierz datę</a>
-              <a href="bikes.php">Rowery</a>
-              <a href="order_summary.php">Zamówienie</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="dropbtn">Konto</button>
-            <div class="dropdown-content">
-              <a href="account.php">Konto</a>
-              <a href="login_form.php">Logowanie</a>
-              <a href="register_form.php">Rejestracja</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="dropbtn">Administracja</button>
-            <div class="dropdown-content">
-              <a href="admin_form.php">Logowanie administratora</a>
-              <a href="admin_panel.php">Panel administratora</a>
-            </div>
-          </div>
-          <div class="option" onclick="location.href=\'about.php\'">Informacje</div>
-          </div>
-          </div>
-          </body>
-          </html>
-';}
-
-function menu3($page_title)
-{
-    echo '
- <html lang="pl-PL">
-  <body>
-  <div id="container">
-      </div>
-      <div id="logo">
-          ' . $page_title . '
-      </div>
-      <div id="menu">
-          <div class="option" onclick="location.href=\'index.php\'">Strona główna</div>
-          <div class="dropdown">
-            <div class="dropdown-btn">Wypożycz rower</div>
-            <div class="dropdown-content">
-              <a href="date_picker.php">Wybierz datę</a>
-              <a href="bikes.php">Rowery</a>
-              <a href="order_summary.php">Zamówienie</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <div class="dropdown-btn">Konto</div>
-            <div class="dropdown-content">
-              <a href="account.php">Konto</a>
-              <a href="login_form.php">Logowanie</a>
-              <a href="register_form.php">Rejestracja</a>
-            </div>
-          </div>
-          <div class="dropdown">
-            <div class="dropdown-btn">Administracja</div>
-            <div class="dropdown-content">
-              <a href="admin_form.php">Logowanie administratora</a>
-              <a href="admin_panel.php">Administracja</a>
-            </div>
-          </div>
-          <div class="option" onclick="location.href=\'about.php\'">Informacje</div>
-           ';
-    echo '  
-</a>
-              </div>
-          </div>          
-          <div style="clear:both;"></div>
-      </div>
-  </div>
-  </body>
-  </html>';
+';
 }
 
 function footer()

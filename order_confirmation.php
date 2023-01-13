@@ -13,16 +13,21 @@ menu('Informacje');
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <div class="container">
+    <div class="wrapper">
         <?php
-        echo "<script>alert('Wysłałem e-mail')</script>";
-//        echo "Hejka!    Nadal jesteś zalogowany.        Wysłałem e-mail";
-        header('Location: index.php')
+        echo "Twoje zamówienie zostało złożone prawidłowo. Przesłaliśmy wiadomość e-mail z potwierdzeniem.";
+        $_SESSION['order_placed'] = false;
+        unset($_SESSION['bike_id']);
+        unset($_SESSION['end_date']);
+        unset($_SESSION['start_date']);
         ?>
+        <hr>
+        <a href="date_picker.php" class="box-button">Złóż kolejne zamówienie</a>
+        <hr>
+        <a href="logout.php" class="box-button">Wyloguj się!</a>
     </div>
     </body>
     </html>
-
 <?php
 footer();
 ?>

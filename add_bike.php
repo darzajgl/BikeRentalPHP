@@ -46,7 +46,7 @@ menu('Dodaj Rower');
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="container">
+<div class="wrapper">
     <form action="" method="post" enctype="multipart/form-data">
         <label for="name">Nazwa:</label>
         <input type="text" id="name" name="name">
@@ -60,7 +60,7 @@ menu('Dodaj Rower');
         <label for="image">Zdjęcie:</label>
         <input type="file" id="image" name="image">
         <br>
-        <input type="submit" name="add_bike" value="Dodaj">
+        <input type="submit" name="add_bike" class = "box-button" value="Dodaj">
     </form>
     <br>
     <a href="admin_panel.php"><input type="button"  class = "box-button" value="Wróć do Panelu Administratora"></a>

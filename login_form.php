@@ -22,36 +22,36 @@ require_once 'functions.php';
 menu('Logowanie');
 ?>
 <body>
-<form action="login_validation.php" method="post">
-    <fieldset>
+<div class="wrapper">
+    <form action="login_validation.php" method="post">
+        <fieldset>
 
-        <input type="text" name="login" required placeholder="login" id="login">
+            <input type="text" name="login" required placeholder="login" id="login">
+            <?php
+            if (isset($_SESSION['login_error'])) {
+                echo $_SESSION['login_error'];
+                unset($_SESSION['login_error']);
+            }
+            ?>
+            <br>
+            <input type="password" name="password" placeholder="Hasło" id="password" required>
+            <br>
+        </fieldset>
         <?php
-        if (isset($_SESSION['login_error'])) {
-            echo $_SESSION['login_error'];
-            unset($_SESSION['login_error']);
+        if (isset($_SESSION['password_error'])) {
+            echo $_SESSION['password_error'];
+            unset($_SESSION['password_error']);
         }
         ?>
-        <br>
-        <input type="password" name="password"  placeholder="Hasło" id="password" required>
-        <br>
-    </fieldset>
-    <?php
-    if (isset($_SESSION['password_error'])) {
-        echo $_SESSION['password_error'];
-        unset($_SESSION['password_error']);
-    }
-    ?>
-    <fieldset>
+        <fieldset>
 
-        <input type="submit" value="Zaloguj się">
-        <br>
-        <hr>
-        <p>Nie masz konta?</p>
-        <a href="register_form.php">Zarejestruj się!</a>
+            <input type="submit" class="box-button" value="Zaloguj się">
+            <p>Nie masz konta?</p>
+            <a href="register_form.php" class="box-button">Zarejestruj się!</a>
 
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>
 </body>
 <?php
 footer();

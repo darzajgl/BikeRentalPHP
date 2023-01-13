@@ -38,7 +38,7 @@ if (isset($_POST['product_id'])) {
 //    exit;
 //}
 
-menu('Strona główna');
+menu('Wybierz rower');
 ?>
     <!DOCTYPE html>
     <html lang="pl-PL">
@@ -47,17 +47,16 @@ menu('Strona główna');
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <title>Wybór roweru</title>
         <link rel="stylesheet" href="style.css">
-        <link href='http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet'
-              type="text/css">
+
     </head>
     <body>
-    <div id="container">
+    <div class="wrapper">
         <?php
         $sql = "SELECT * FROM bikes";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            element($row['name'], $row['price'], $row['description'], $row['image'],$row['bike_id']);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            element($row['name'], $row['price'], $row['description'], $row['image'], $row['bike_id']);
         }
         ?>
     </div>

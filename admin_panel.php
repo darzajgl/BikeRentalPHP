@@ -5,8 +5,8 @@ include_once 'functions.php';
 require_once "db_config.php";
 
 /// sprawdź czy admin zalogowany
-if (!isset($_SESSION['admin_logged']) || (!$_SESSION['admin_logged'] == true)) {
-    header('Location: index.php');
+if (!isset($_SESSION['admin_logged']) || (!$_SESSION['admin_logged'])) {
+    header('Location: admin_form.php');
     exit();
 }
 
@@ -41,7 +41,8 @@ menu('Panel Administratora');
     </head>
 
     <body>
-    <div id="container">
+    <div class="wrapper">
+        <a style="padding: 100px;" href="logout.php"><input type="button" class="box-button" value="Wyloguj się"></a>
         <?php
         //Zapytanie do bazy danych, które wybierze wszystkie kolumny z retnals
         $stmt = $pdo->prepare("SELECT users.name, users.surname, bikes.name as 'bike', rentals.start_date, rentals.end_date, rentals.rental_id
@@ -52,6 +53,7 @@ JOIN bikes ON rentals.bike_id=bikes.bike_id");
         //Pobieranie danych z bazy danych
         $result = $stmt->fetchAll();
         ?>
+        <h2 style="padding:  0 100px;">Wypożyczenia</h2>
         <table border="1">
             <tr>
                 <th>Imię</th>
@@ -86,22 +88,19 @@ JOIN bikes ON rentals.bike_id=bikes.bike_id");
             }
             ?>
         </table>
-        <br>
         <hr>
+        <h2 style="padding:  0 100px;">Rowery</h2>
         <br>
-
-        <br>
-        <a href="add_bike.php"><input type="button"  class = "box-button" value="Dodaj Rower"></a>
-
 
         <?php
+
         // Tworzenie zapytania SQL, które wybiera wszystkie kolumny z tabeli bikes
         $stmt = $pdo->prepare("SELECT * FROM bikes");
         $stmt->execute();
         // Pobranie wyniku zapytania
         $result = $stmt->fetchAll();
         ?>
-
+        <a style="padding: 100px;" href="add_bike.php"><input type="button" class="box-button" value="Dodaj Rower"></a>
         <!-- Tabela z danymi z tabeli bikes -->
         <table border="1">
             <tr>

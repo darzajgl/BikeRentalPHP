@@ -111,7 +111,7 @@ $message = '
   </tr>
 </tbody>
 </table>
- <p>Dziękujemy za dokonanie zamówienia. Zapraszamy po odbiór roweru w dniu ' . $start_date . '.</p>
+ <p>Dziękujemy za dokonanie zamówienia. Zapraszamy po odbiór w dniu ' . $start_date . '.</p>
   <p>Z poważaniem</p>
   <p>Zespół wypożyczalni</p>
   </body>

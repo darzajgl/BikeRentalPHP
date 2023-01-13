@@ -16,11 +16,12 @@ menu('Strona główna');
 </head>
 
 <body>
-<div id="container">
-
-            </div>
-        </div>
-    </form>
+<div class="wrapper">
+    <img style=" align-content center;
+             margin-right: auto;" src="images/index.jpg">
+</div>
+</div>
+</form>
 </div>
 </body>
 </html>

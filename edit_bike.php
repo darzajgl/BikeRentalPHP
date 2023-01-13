@@ -6,7 +6,7 @@ require_once "db_config.php";
 
 // sprawdz czy admin zalogowany i czy jest bike_id
 if (!isset($_SESSION['admin_logged']) || (!$_SESSION['admin_logged'] == true) || !isset($_GET['bike_id'])) {
-    header('Location: admin_panel.php');
+    header('Location: admin_form.php');
     exit();
 }
 
@@ -54,7 +54,7 @@ menu('Edytuj Rower');
 </head>
 
 <body>
-<div id="container">
+<div class="wrapper">
     <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="bike_id" value="<?php echo $bike['bike_id']; ?>">
         <label for="name">Nazwa:</label>
@@ -62,16 +62,16 @@ menu('Edytuj Rower');
         <br>
         <label for="description">Opis:</label>
         <textarea id="description" name="description"><?php echo $bike['description']; ?></textarea>
-<br>
-<label for="price">Cena:</label>
-<input type="number" id="price" name="price" value="<?php echo $bike['price']; ?>">
-<br>
-<label for="image">Zdjęcie:</label>
-<input type="file" id="image" name="image" required>
-<br>
-<input type="submit" name="save_changes" value="Aktualizuj">
-</form>
-
+        <br>
+        <label for="price">Cena:</label>
+        <input type="number" id="price" name="price" value="<?php echo $bike['price']; ?>">
+        <br>
+        <label for="image">Zdjęcie:</label>
+        <input type="file" id="image" name="image"  required>
+        <br>
+        <input type="submit" name="save_changes" class = "box-button" value="Aktualizuj">
+    </form>
+    <a href="admin_panel.php"><input type="button" class="box-button" value="Wróć do Panelu Administratora"></a>
 </div>
 </body>
 </html>

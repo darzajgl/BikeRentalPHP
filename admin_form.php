@@ -16,33 +16,35 @@ include_once 'functions.php';
 menu('Administracja');
 ?>
 <body>
-<form action="admin_validation.php" method="post">
-    <fieldset>
-        <input type="text" name="admin_login" required placeholder="Login administratora" id="login">
-        <?php
-        if (isset($_SESSION['admin_login_error'])) {
-            echo $_SESSION['admin_login_error'];
-            unset($_SESSION['admin_login_error']);
-        }
-        ?>
-        <br>
-        <input type="password" name="admin_password"  placeholder="Hasło" id="admin_password" required>
-        <br>
-        <?php
-        if (isset($_SESSION['admin_password_error'])) {
-            echo $_SESSION['admin_password_error'];
-            unset($_SESSION['admin_password_error']);
-        }
-        ?>
+<div class="wrapper">
+    <form action="admin_validation.php" method="post">
+        <fieldset>
+            <input type="text" name="admin_login" required placeholder="Login administratora" id="login">
+            <?php
+            if (isset($_SESSION['admin_login_error'])) {
+                echo $_SESSION['admin_login_error'];
+                unset($_SESSION['admin_login_error']);
+            }
+            ?>
+            <br>
+            <input type="password" name="admin_password" placeholder="Hasło" id="admin_password" required>
+            <br>
+            <?php
+            if (isset($_SESSION['admin_password_error'])) {
+                echo $_SESSION['admin_password_error'];
+                unset($_SESSION['admin_password_error']);
+            }
+            ?>
 
-    </fieldset>
-    <fieldset>
+        </fieldset>
+        <fieldset>
 
-        <input type="submit" value="Zaloguj się">
-        <br>
+            <input type="submit" class = "box-button" value="Zaloguj się">
+            <br>
 
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>
 </body>
 <?php
 footer();

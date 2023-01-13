@@ -103,7 +103,7 @@ menu('Edycja wypożyczenia');
         <link rel="stylesheet" href="style.css">
     </head>
 <body>
-<div id="container">
+<div class="wrapper">
     <form method="post">
     <label>
         Użytkownik:
@@ -156,8 +156,9 @@ echo '<label for="end_date">Data zwrotu:</label>';
 echo '<input type="date" class="form-control" name="end_date" id="end_date" value="' . $rental['end_date'] . '">';
 echo '</div>';
 
-echo '<button type="submit" name="submit" class="btn btn-primary">Aktualizuj</button>';
+echo '<button type="submit" name="submit" class="box-button">Aktualizuj</button>';
 echo '</form>';
+echo '<br><a href="admin_panel.php"><input type="button"  class = "box-button" value="Wróć do Panelu Administratora"></a>';
 
 // Zamknięcie połączenia z bazą danych
 $pdo = null;
