@@ -3,6 +3,12 @@ session_start();
 include_once 'functions.php';
 require_once "db_config.php";
 
+// sprawdz czy admin zalogowany i czy jest bike_id
+if (!isset($_SESSION['admin_logged']) || (!$_SESSION['admin_logged'] == true) || !isset($_GET['rental_id'])) {
+    header('Location: admin_panel.php');
+    exit();
+}
+
 $rental_id = $_GET['rental_id'];
 
 // Połączenie z bazą danych przy użyciu PDO

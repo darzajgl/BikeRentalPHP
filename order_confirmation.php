@@ -15,11 +15,10 @@ menu('Informacje');
     <body>
     <div class="container">
         <?php
-        echo "Hejka!    Nadal jesteś zalogowany.        Wysłałem e-mail";
-
+        echo "<script>alert('Wysłałem e-mail')</script>";
+//        echo "Hejka!    Nadal jesteś zalogowany.        Wysłałem e-mail";
+        header('Location: index.php')
         ?>
-    </div>
-    </div>
     </div>
     </body>
     </html>

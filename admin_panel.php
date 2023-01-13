@@ -4,12 +4,13 @@ session_start();
 include_once 'functions.php';
 require_once "db_config.php";
 
-//if (!isset($_POST['login']) || (!isset($_POST['password']))) {
-//    header('Location: index.php');
-//    exit();
-//}
+/// sprawdź czy admin zalogowany
+if (!isset($_SESSION['admin_logged']) || (!$_SESSION['admin_logged'] == true)) {
+    header('Location: index.php');
+    exit();
+}
 
-/// Połączenie z bazą danych przy użyciu PDO
+// Połączenie z bazą danych przy użyciu PDO
 try {
     $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
 } catch (PDOException $error) {
@@ -18,10 +19,13 @@ try {
 }
 
 
-if (isset($_POST['delete'])) {
+if (isset($_POST['delete_rental'])) {
     $rental_id = $_POST['rental_id'];
     delete_rental($rental_id, $pdo);
-
+}
+if (isset($_POST['delete_bike'])) {
+    $bike_id = $_POST['bike_id'];
+    delete_bike($bike_id, $pdo);
 }
 
 menu('Panel Administratora');
@@ -39,13 +43,7 @@ menu('Panel Administratora');
     <body>
     <div id="container">
         <?php
-        //Tworzenie obiektu PDO
-        $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
-        //Konfiguracja PDO
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-        //Zapytanie do bazy danych
+        //Zapytanie do bazy danych, które wybierze wszystkie kolumny z retnals
         $stmt = $pdo->prepare("SELECT users.name, users.surname, bikes.name as 'bike', rentals.start_date, rentals.end_date, rentals.rental_id
 FROM rentals
 JOIN users ON rentals.user_id=users.user_id
@@ -76,14 +74,65 @@ JOIN bikes ON rentals.bike_id=bikes.bike_id");
                 echo "<td>
 <form action='' method='post'>
 <input type='hidden' name='rental_id' value='" . $row['rental_id'] . "'>
-<input type='submit' name='delete' value='Usuń'
+<input type='submit' name='delete_rental' value='Usuń' class = 'box-button'
                          onclick='return confirm(\"Czy na pewno chcesz usunąć rekord?\");'>
 </form>
 </td>";
                 echo "<td><form action='edit_rental.php' method='get'>
 <input type='hidden' name='rental_id' value='" . $row['rental_id'] . "'>
-<input type='submit' value='Edytuj'/>
+<input type='submit' value='Edytuj' class = 'box-button'/>
 </form></td>";
+                echo "</tr>";
+            }
+            ?>
+        </table>
+        <br>
+        <hr>
+        <br>
+
+        <br>
+        <a href="add_bike.php"><input type="button"  class = "box-button" value="Dodaj Rower"></a>
+
+
+        <?php
+        // Tworzenie zapytania SQL, które wybiera wszystkie kolumny z tabeli bikes
+        $stmt = $pdo->prepare("SELECT * FROM bikes");
+        $stmt->execute();
+        // Pobranie wyniku zapytania
+        $result = $stmt->fetchAll();
+        ?>
+
+        <!-- Tabela z danymi z tabeli bikes -->
+        <table border="1">
+            <tr>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Obraz</th>
+                <th>Cena</th>
+                <th>Usuń</th>
+                <th>Edytuj</th>
+            </tr>
+            <?php
+            // Iteracja po kolejnych wierszach
+            foreach ($result as $row) {
+                echo "<tr>
+                      <td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['description'] . "</td>";
+                echo "<td>" . $row['image'] . "</td>";
+                echo "<td>" . $row['price'] . "</td>";
+                echo "<td>
+                        <form action='' method='post'>
+<input type='hidden' name='bike_id' value='" . $row['bike_id'] . "'>
+<input type='submit' name='delete_bike' value='Usuń' class = 'box-button'
+onclick='return confirm(\"Czy na pewno chcesz usunąć rekord?\");'>
+                        
+</form></td>";
+
+                echo "<td>
+                      <form action='edit_bike.php' method='get'>
+                        <input type='hidden' name='bike_id' value='" . $row['bike_id'] . "'>
+                        <input type='submit' name='edit' value='Edytuj' class = 'box-button' >
+                      </form></td>";
                 echo "</tr>";
             }
             ?>

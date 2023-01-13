@@ -335,3 +335,85 @@ h2 {
 /*    text-align: left;*/
 /*    vertical-align: top*/
 /*}*/
+
+
+/*menu*/
+/*#container {*/
+/*    width: 100%;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*#logo {*/
+/*    text-align: center;*/
+/*    font-size: 30px;*/
+/*    font-weight: bold;*/
+/*    padding: 20px 0;*/
+/*}*/
+
+/*!*#menu {*!*/
+/*!*    width: 100%;*!*/
+/*!*    background-color: #333;*!*/
+/*!*}*!*/
+
+/*.option {*/
+/*    float: left;*/
+/*    list-style: none;*/
+/*    padding: 20px;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*.option:hover {*/
+/*    background-color: #555;*/
+/*}*/
+
+/*.dropdown {*/
+/*    float: left;*/
+/*    list-style: none;*/
+/*    padding: 20px;*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    position: relative;*/
+/*}*/
+
+/*.dropdown:hover {*/
+/*    background-color: #555;*/
+/*}*/
+
+/*.dropdown .dropdown-content {*/
+/*    display: none;*/
+/*    position: absolute;*/
+/*    background-color: #333;*/
+/*    min-width: 100%;*/
+/*    z-index: 1;*/
+/*}*/
+
+/*.dropdown:hover .dropdown-content {*/
+/*    display: block;*/
+/*}*/
+
+/*.dropdown .dropdown-content a {*/
+/*    color: #fff;*/
+/*    text-decoration: none;*/
+/*    display: block;*/
+/*    padding: 20px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.dropdown .dropdown-content a:hover {*/
+/*    background-color: #555;*/
+/*}*/
+
+/*.clear {*/
+/*    clear: both;*/
+/*}*/
+
+/*#menu .dropdown .dropdown-content .option {*/
+/*    padding-left: 40px;*/
+/*}*/
+
+/*#menu .dropdown .dropdown-content .option:hover {*/
+/*    background-color: #555;*/
+/*}*/

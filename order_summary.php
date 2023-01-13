@@ -2,30 +2,12 @@
 session_start();
 
 include_once 'functions.php';
-//require_once "db_config.php";
-//mysqli_report(MYSQLI_REPORT_STRICT);
-//
-//// Połączenie z bazą danych
-//try {
-//    $connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
-//
-//    if ($connection->connect_errno !== 0) {
-//        throw new Exception((mysqli_connect_error()));
-//    }
-//} catch (Exception $error) {
-//    $_SESSION['error_server'] = $error->getMessage();
-//    header('Location:index.php');
-//}
-//
-//if (!$connection) {
-//    echo "Błąd podczas łączenia z bazą danych: " . mysqli_connect_error();
-//}
 
 
 // sprawdzenie czy daty i produkt zostały wybrane
-//if (!isset($_SESSION['start_date']) || !isset($_SESSION['end_date']) || (!isset($_SESSION['cart']))) {
-//    header('Location: index.php');
-//}
+if (!isset($_SESSION['start_date']) || !isset($_SESSION['end_date']) || (!isset($_SESSION['bike_id']))) {
+    header('Location: index.php');
+}
 
 
 
@@ -70,10 +52,7 @@ menu('Podsumowanie zamówienia');
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>Podsumowanie zamówienia</title>
     <link rel="stylesheet" href="style.css">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico&subset=latin,latin-ext' rel='stylesheet'
-          type="text/css">
 </head>
-
 <body>
 <div id="container">
     <form action="login_form.php" method="post">

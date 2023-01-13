@@ -5,7 +5,7 @@ include_once 'functions.php';
 //if (!isset($_SESSION['logged'])) {
 //    header('Location: index.php');
 //}
-mysqli_report(MYSQLI_REPORT_STRICT);
+
 menu('Konto');
 ?>
     <!DOCTYPE html>
