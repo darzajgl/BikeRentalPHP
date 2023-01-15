@@ -16,21 +16,22 @@ function menu($page_title)
     <div class="nav">
         <ol>
             <li><a href="index.php">Strona główna</a></li>
-            <li><a>Wypożycz rower</a>
+            <li><a href="order_summary.php">Wypożycz rower</a>
                 <ul>
                     <li><a href="date_picker.php">Wybierz Daty</a></li>
                     <li><a href="bikes.php">Wybierz Rower</a></li>
                     <li><a href="order_summary.php">Zamówienie</a></li>
                 </ul>
             </li>
-            <li><a>Panel klienta</a>
+            <li><a href="account.php">Panel klienta</a>
                 <ul>
                     <li><a href="account.php">Konto</a></li>
                     <li><a href="login_form.php">Logowanie</a></li>
                     <li><a href="register_form.php">Rejestracja</a></li>
+                    <li><a href="order_history.php">Historia Zamówień</a></li>
                 </ul>
             </li>
-            <li><a>Administracja</a>
+            <li><a href="admin_panel.php">Administracja</a>
                 <ul>
                     <li><a href="admin_form.php">Logowanie</a></li>
                     <li><a href="admin_panel.php">Panel Administratora</a></li>
@@ -123,9 +124,11 @@ function update_bike($bike_id, $name, $description, $price, $image, $pdo)
 {
     // Przygotowanie zapytania SQL do aktualizacji rekordu roweru
     $stmt = $pdo->prepare("UPDATE bikes SET name = :name, description = :description, price = :price, image = :image WHERE bike_id = :bike_id");
-    // Przypisanie wartości do zmiennych
+
     // Dodanie prefiksu "images/" ścieżki zdjęcia
     $image = "images/" . $image;
+
+    // Przypisanie wartości do zmiennych
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':price', $price);
@@ -133,6 +136,7 @@ function update_bike($bike_id, $name, $description, $price, $image, $pdo)
     $stmt->bindParam(':bike_id', $bike_id);
     // wykonanie zapytania
     $stmt->execute();
+    header('Location: ' . $_SERVER['PHP_SELF']);
 }
 
 function add_bike($name, $description, $price, $image, $pdo)
@@ -161,6 +165,27 @@ function delete_rental($rental_id, $pdo)
     }
 }
 
+function update_rental($rental_id, $user_id, $bike_id, $start_date, $end_date, $pdo)
+{
+    $stmt = $pdo->prepare("UPDATE rentals SET user_id = :user_id, bike_id = :bike_id, start_date = :start_date, end_date = :end_date WHERE rental_id = :rental_id");
+    //bindowanie
+    $stmt->bindParam(':rental_id', $rental_id);
+    $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->bindValue(':bike_id', $bike_id, PDO::PARAM_INT);
+    $stmt->bindValue(':start_date', $start_date, PDO::PARAM_STR);
+    $stmt->bindValue(':end_date', $end_date, PDO::PARAM_STR);
+    return $stmt->execute();
+    header('Location: ' . $_SERVER['PHP_SELF']);
+
+}
+
+function add_rental($user_id, $bike_id, $start_date, $end_date, $pdo)
+{
+    $stmt = $pdo->prepare("INSERT INTO rentals (bike_id, user_id, start_date, end_date) VALUES (?,?,?,?)");
+    return $stmt->execute([$bike_id, $user_id, $start_date, $end_date]);
+    header('Location: ' . $_SERVER['PHP_SELF']);
+
+}
 
 ?>
 

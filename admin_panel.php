@@ -27,6 +27,34 @@ if (isset($_POST['delete_bike'])) {
     $bike_id = $_POST['bike_id'];
     delete_bike($bike_id, $pdo);
 }
+//sortowanie
+
+//zapytanie
+$query = "SELECT users.name, users.surname, bikes.name as 'bike', rentals.start_date, rentals.end_date, rentals.rental_id
+FROM rentals
+JOIN users ON rentals.user_id=users.user_id
+JOIN bikes ON rentals.bike_id=bikes.bike_id";
+
+if (isset($_GET['sort']) && $_GET['sort'] == 'name') {
+    $query .= " ORDER BY name";
+}
+if (isset($_GET['sort']) && $_GET['sort'] == 'surname') {
+    $query .= " ORDER BY surname";
+}
+if (isset($_GET['sort']) && $_GET['sort'] == 'bike') {
+    $query .= " ORDER BY bike";
+}
+if (isset($_GET['sort']) && $_GET['sort'] == 'start_date') {
+    $query .= " ORDER BY start_date";
+}
+if (isset($_GET['sort']) && $_GET['sort'] == 'end_date') {
+    $query .= " ORDER BY end_date";
+}
+
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$result = $stmt->fetchAll();
+
 
 menu('Panel Administratora');
 ?>
@@ -42,25 +70,30 @@ menu('Panel Administratora');
 
     <body>
     <div class="wrapper">
-        <a style="padding: 100px;" href="logout.php"><input type="button" class="box-button" value="Wyloguj się"></a>
+        <div style="padding:  10px 100px;">
+            <a href="logout.php"><input type="button" class="box-button" value="Wyloguj się"></a>
+        </div>
+        <hr>
+
         <?php
         //Zapytanie do bazy danych, które wybierze wszystkie kolumny z retnals
-        $stmt = $pdo->prepare("SELECT users.name, users.surname, bikes.name as 'bike', rentals.start_date, rentals.end_date, rentals.rental_id
-FROM rentals
-JOIN users ON rentals.user_id=users.user_id
-JOIN bikes ON rentals.bike_id=bikes.bike_id");
+        $stmt = $pdo->prepare($query);
         $stmt->execute();
         //Pobieranie danych z bazy danych
         $result = $stmt->fetchAll();
         ?>
         <h2 style="padding:  0 100px;">Wypożyczenia</h2>
+        <div style="padding:  10px 100px;">
+            <a href="add_rental.php"><input type="button" class="box-button"  value="Dodaj Zamówienie Ręcznie"></a>
+        </div>
+
         <table border="1">
             <tr>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>Rower</th>
-                <th>Data wypożyczenia</th>
-                <th>Data zwrotu</th>
+                <th><a href="?sort=name">Imię</a></th>
+                <th><a href="?sort=surname">Nazwisko</a></th>
+                <th><a href="?sort=bike">Rower</a></th>
+                <th><a href="?sort=start_date">Data wypożyczenia</a></th>
+                <th><a href="?sort=end_date">Data zwrotu</a></th>
                 <th>Usuń</th>
                 <th>Edytuj</th>
             </tr>

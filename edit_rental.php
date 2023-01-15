@@ -72,15 +72,7 @@ if (isset($_POST['submit'])) {
     }
     if (empty($errors)) {
         // Aktualizacja danych w bazie danych
-        $stmt = $pdo->prepare("UPDATE rentals SET user_id = :user_id, bike_id = :bike_id, start_date = :start_date, end_date = :end_date WHERE rental_id = :rental_id");
-        $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->bindValue(':bike_id', $bike_id, PDO::PARAM_INT);
-        $stmt->bindValue(':start_date', $start_date, PDO::PARAM_STR);
-        $stmt->bindValue(':end_date', $end_date, PDO::PARAM_STR);
-        $stmt->bindValue(':rental_id', $rental_id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Przekierowanie do panelu administratora
+        update_rental($rental_id,$user_id,$bike_id,$start_date,$end_date,$pdo);
         header('Location: admin_panel.php');
     } else {
         // Wyświetlenie błędów

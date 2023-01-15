@@ -40,7 +40,7 @@ menu('Konto');
                 echo "<br><br>";
 
             } else {
-                echo "Musisz być zalogowany aby podejrzeć swoje dane";
+                echo "Musisz być zalogowany, aby podejrzeć swoje dane";
                 echo '<hr><a href="login_form.php" class="box-button">Przejdz do strony logowania!</a>';
             }
             ?>

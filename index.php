@@ -17,8 +17,9 @@ menu('Strona główna');
 
 <body>
 <div class="wrapper">
-    <img style=" align-content center;
-             margin-right: auto;" src="images/index.jpg">
+    <div id="content" style="text-align: center;">
+        <img style="max-width: 100%; width: auto; height: auto; margin: 0 auto;" src="images/poster2.jpg">
+    </div>
 </div>
 </div>
 </form>

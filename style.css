@@ -31,7 +31,7 @@ body {
 }
 
 .content {
-    width: 1000px;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
     text-align: justify;
@@ -199,7 +199,7 @@ ol > li > ul > li:hover > a {
 .box-button:hover {
     background: linear-gradient(45deg, #7199E5, #255FCA);
     cursor: pointer;
-        color: white;
+    color: white;
     transform: scale(1.05);
     transition: background 0.3s ease;
 }
@@ -258,6 +258,16 @@ th {
     font-weight: bold;
 }
 
+th a {
+    color: #E1E9F9;
+    /*text-decoration: none; !* remove underline from link *!*/
+}
+
+th a:hover {
+    color: #255FCA;
+    text-decoration: underline; /* add underline on hover */
+}
+
 td img {
     max-width: 100px;
 }
@@ -290,7 +300,8 @@ ol
     margin-left: auto;
     margin-right: auto;
 }
-#img{
+
+#img {
     margin-left: auto;
     margin-right: auto;
 }
