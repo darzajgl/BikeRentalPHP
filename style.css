@@ -35,7 +35,17 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: justify;
-    padding: 20px;
+}
+
+#about {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 40px;
+    text-align: justify;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    background-color: #E1E9F9;
+    color: #153774;
 }
 
 ol {

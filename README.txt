@@ -1,3 +1,7 @@
+Dane logowania administratora
+login: administrator
+hasło: administrator
+
 Polski
  Wypożyczalnia rowerowa
 

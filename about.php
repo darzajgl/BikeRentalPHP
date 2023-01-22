@@ -14,9 +14,11 @@ menu('Informacje');
     </head>
     <body>
     <div class="wrapper">
-        <div class="content">
+        <div id="about">
 
-            <h2>Autor: Dariusz Zajglic</h2>
+            <h3>Dane logowania administratora</h3>
+            <p>login: administrator</p>
+            <p>hasło: administrator</p>
 
             <h1>POLSKI</h1>
             <h1>Wypożyczalnia Rowerowa</h1>
@@ -39,7 +41,8 @@ menu('Informacje');
             <h2>Panel administratora</h2>
             <p>Użytkownicy posiadający uprawnienia administratora mogą zalogować się do panelu administratora, w którym
                 mają dostęp do funkcji takich jak: dodawanie, edycja i usuwanie produktów oraz zarządzanie
-                zamówieniami.</p>
+                zamówieniami.
+            </p>
 
             <h2>Składanie zamówienia</h2>
             <p>Użytkownicy mają możliwość wyboru daty początkowej i końcowej okresu zamówienia, jednakże okres
